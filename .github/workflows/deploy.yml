@@ -3,7 +3,7 @@ name: Deploy React Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main  # ou master si c'est ton branche principale
+      - main  # Déclenche le workflow quand tu push sur main
 
 jobs:
   build:
@@ -16,12 +16,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # ou une version >=18
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build React app
+      - name: Build project
         run: npm run build
 
       - name: Deploy to GitHub Pages
