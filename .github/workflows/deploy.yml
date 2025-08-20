@@ -3,7 +3,7 @@ name: Deploy React Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main  # Déclenche le workflow quand tu push sur main
+      - main  # Se déclenche à chaque push sur main
 
 jobs:
   build:
@@ -16,16 +16,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18'   # ou 20 si tu préfères
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build project
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v6
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
